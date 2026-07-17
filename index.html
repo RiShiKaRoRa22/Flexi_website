@@ -1,8 +1,3 @@
-Here is a complete, single-file solution containing the HTML, CSS, and JavaScript for your personal portfolio. The design is minimalist, highly professional, and utilizes a clean, monochrome color palette with clear section dividers.
-
-I have included an "About Me" paragraph generated from your academic background and project history.
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -333,5 +328,1088 @@ I have included an "About Me" paragraph generated from your academic background 
     </script>
 </body>
 </html>
+make it a personal potfolio website. it just looks like my resume uploaded
 
-```
+Here is a completely redesigned version that moves away from the "document" look and feels like a modern, interactive professional portfolio.
+
+To achieve this, I have added a sticky navigation bar, a dedicated "Hero" landing section, interactive project cards with hover effects, and a responsive grid layout. The color palette remains strictly professional, utilizing crisp whites, soft grays, and deep slate/black tones for a minimalist aesthetic.
+
+HTML
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rishika Arora | Software Engineer Portfolio</title>
+    <style>
+        /* CSS: Modern, minimal, professional portfolio */
+        :root {
+            --bg-color: #fbfbfb;
+            --surface-color: #ffffff;
+            --text-primary: #111827;
+            --text-secondary: #4b5563;
+            --text-tertiary: #9ca3af;
+            --accent-dark: #000000;
+            --border-color: #e5e7eb;
+            --hover-bg: #f3f4f6;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-color);
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--text-primary);
+        }
+
+        p, li {
+            color: var(--text-secondary);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s ease;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 6rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        .section-header {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            letter-spacing: -0.025em;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 4rem;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.25rem;
+            letter-spacing: -0.025em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            padding-top: 4rem; /* offset for nav */
+            border-bottom: none;
+        }
+
+        .hero-content {
+            max-width: 700px;
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            letter-spacing: -0.05em;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-desc {
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            font-weight: 500;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-dark);
+            color: white;
+            border: 1px solid var(--accent-dark);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--accent-dark);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--accent-dark);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent-dark);
+        }
+
+        /* About Grid */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 4rem;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+        }
+
+        .education-card {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+            border-radius: 8px;
+        }
+
+        .education-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-card .meta {
+            font-size: 0.9rem;
+            color: var(--text-tertiary);
+            margin-bottom: 1rem;
+        }
+
+        /* Project Cards */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+            border-color: #d1d5db;
+        }
+
+        .card-header {
+            margin-bottom: 1rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .card-subtitle {
+            font-size: 0.85rem;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .card-body {
+            flex-grow: 1;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-body ul {
+            padding-left: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .card-body li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Tags */
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            font-size: 0.75rem;
+            padding: 0.25rem 0.75rem;
+            background: var(--hover-bg);
+            color: var(--text-secondary);
+            border-radius: 9999px;
+            font-weight: 500;
+        }
+
+        /* Experience Timeline */
+        .experience-item {
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .exp-meta {
+            text-align: right;
+        }
+
+        .exp-role {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .exp-company {
+            color: var(--text-secondary);
+        }
+
+        .exp-date {
+            font-size: 0.9rem;
+            color: var(--text-tertiary);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--surface-color);
+            padding: 4rem 0;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-links a {
+            font-weight: 500;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-dark);
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* simple mobile hide for minimal setup */
+            }
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            .about-grid, .experience-item {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .exp-meta {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#home" class="logo">RA.</a>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#leadership">Leadership</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero container">
+        <div class="hero-content">
+            <span class="hero-subtitle">Portfolio</span>
+            <h1 class="hero-title">Rishika Arora</h1>
+            <p class="hero-desc">
+                A Computer Science Engineering student specializing in full-stack development, machine learning, and IoT architectures[cite: 1].
+            </p>
+            <div class="btn-group">
+                <a href="#projects" class="btn btn-primary">View Projects</a>
+                <a href="mailto:rishikarora2006@gmail.com" class="btn btn-outline">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About & Education Section -->
+    <section id="about" class="container">
+        <div class="section-header">
+            <h2 class="section-title">About Me</h2>
+        </div>
+        <div class="about-grid">
+            <div class="about-text">
+                <p>
+                    I am a dedicated Computer Science and Engineering student at Symbiosis Institute of Technology with a strong academic foundation, holding a 9.10 GPA[cite: 1]. My technical expertise spans across robust full-stack development, applied machine learning, and hardware-integrated IoT architectures[cite: 1]. 
+                </p>
+                <br>
+                <p>
+                    I have a proven track record of architecting comprehensive systems—from implementing high-accuracy ensemble ML models for cardiac arrest prediction, to building scalable e-learning platforms and engineering smart fall detection systems[cite: 1]. Beyond coding, I am committed to community leadership and technical collaboration, actively driving initiatives as a club leader and applying agile methodologies to deliver end-to-end technical solutions[cite: 1].
+                </p>
+            </div>
+            
+            <div class="education-sidebar">
+                <div class="education-card">
+                    <h4>Symbiosis Institute Of Technology</h4>
+                    <div class="meta">2023 - 2027</div>
+                    <p>Bachelor of Technology in Computer Science and Engineering[cite: 1]</p>
+                    <hr style="margin: 1rem 0; border: none; border-top: 1px solid #e5e7eb;">
+                    <p><strong>GPA:</strong> 9.10[cite: 1]</p>
+                    <p><strong>Awards:</strong> 2nd Rank in CS Dept, Merit Scholarship Award[cite: 1]</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="container">
+        <div class="section-header">
+            <h2 class="section-title">Experience</h2>
+        </div>
+        
+        <div class="experience-list">
+            <div class="experience-item">
+                <div class="exp-meta">
+                    <div class="exp-role">Technology Intern</div>
+                    <div class="exp-company">Akshar Paaul NGO</div>
+                    <div class="exp-date">06/2025 - 12/2025 | Pune</div>
+                </div>
+                <div class="exp-details">
+                    <ul style="padding-left: 1.2rem;">
+                        <li>Built a full-stack e-learning platform using Next.js and Firebase, featuring role-based authentication for students and admins[cite: 1].</li>
+                        <li>Developed personalized dashboards with class-filtered notes, subject-wise flashcards, and an integrated quiz module to enhance student learning[cite: 1].</li>
+                        <li>Wrote unit tests with Jest across core components and managed end-to-end project delivery, timelines, and scope using Jira[cite: 1].</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section (Cards Layout) -->
+    <section id="projects" class="container">
+        <div class="section-header">
+            <h2 class="section-title">Featured Projects</h2>
+        </div>
+        
+        <div class="project-grid">
+            <!-- Project 1 -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">ECG Analysis for Cardiac Arrest</h3>
+                    <div class="card-subtitle">01/2025 - 04/2025</div>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li>Pioneered a full stack clinical ECG analyzer using ensemble models (XGBoost, Logistic Regression, Random Forest), achieving 97% AUC[cite: 1].</li>
+                        <li>Developed responsive web application with Streamlit for real-time predictions and data visualization[cite: 1].</li>
+                        <li>Implemented secure data architecture with HIPAA-compliant Azure Cloud Storage for encrypted patient data management[cite: 1].</li>
+                    </ul>
+                </div>
+                <div class="tags">
+                    <span class="tag">Machine Learning</span>
+                    <span class="tag">Azure Cloud</span>
+                    <span class="tag">Streamlit</span>
+                    <span class="tag">XGBoost</span>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Network Intrusion Detection System</h3>
+                    <div class="card-subtitle">02/2025 - 03/2025</div>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li>Constructed a high-throughput network monitor capable of processing 10,000 packets/second using multithreaded Java[cite: 1].</li>
+                        <li>Structured a normalized MySQL database with 31 tables to track and analyze network events efficiently[cite: 1].</li>
+                        <li>Designed for real-time fraud detection, visualizing brute-force attacks and suspicious patterns[cite: 1].</li>
+                    </ul>
+                </div>
+                <div class="tags">
+                    <span class="tag">Java</span>
+                    <span class="tag">MySQL</span>
+                    <span class="tag">JDBC</span>
+                    <span class="tag">Full-Stack</span>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Smart Fall Detection System</h3>
+                    <div class="card-subtitle">09/2024 - 10/2024</div>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li>Architected a fall detector using ESP32 and MPU6050 sensor, achieving 94.8% accuracy employing an LSTM model on time series readings[cite: 1].</li>
+                        <li>Developed real-time data processing engine by deploying TensorFlow Lite[cite: 1].</li>
+                        <li>Engineered real-time emergency alerts via Blynk IoT and automated emergency SMS notifications[cite: 1].</li>
+                    </ul>
+                </div>
+                <div class="tags">
+                    <span class="tag">IoT</span>
+                    <span class="tag">Edge ML</span>
+                    <span class="tag">TensorFlow Lite</span>
+                    <span class="tag">ESP32</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership & Extras -->
+    <section id="leadership" class="container">
+        <div class="section-header">
+            <h2 class="section-title">Leadership & Activities</h2>
+        </div>
+        
+        <div class="project-grid">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Community & Clubs</h3>
+                </div>
+                <div class="card-body">
+                    <ul style="list-style-type: none; padding-left: 0;">
+                        <li style="margin-bottom: 1rem;"><strong>Club Head</strong><br>VarSITy care (ISR Club), SIT Pune<br><span style="font-size: 0.85rem; color: var(--text-tertiary);">06/2025 - Present</span>[cite: 1]</li>
+                        <li style="margin-bottom: 1rem;"><strong>Web Design Co-Head</strong><br>SymbiTech (Annual Technical Fest)<br><span style="font-size: 0.85rem; color: var(--text-tertiary);">01/2025 - 02/2025</span>[cite: 1]</li>
+                        <li><strong>Co-Head Design</strong><br>Google Developers Student Club, SIT<br><span style="font-size: 0.85rem; color: var(--text-tertiary);">06/2024 - 06/2025</span>[cite: 1]</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Core Skills</h3>
+                </div>
+                <div class="card-body">
+                    <div class="tags" style="gap: 0.75rem;">
+                        <span class="tag">Java</span> <span class="tag">Python</span>
+                        <span class="tag">C / C++</span> <span class="tag">MySQL</span>
+                        <span class="tag">Pandas / Numpy</span> <span class="tag">Scikit-learn</span>
+                        <span class="tag">Azure Cloud</span> <span class="tag">Figma</span>
+                        <span class="tag">Git / GitHub</span> <span class="tag">Agile / Scrum</span>
+                        <span class="tag">Linux / Shell scripting</span>
+                    </div>
+                    <div class="card-subtitle" style="margin-top: 1.5rem; margin-bottom: 0.5rem;">Soft Skills</div>
+                    <div class="tags">
+                        <span class="tag">Technical Leadership</span> <span class="tag">Cross-Functional Collaboration</span>
+                        <span class="tag">Public Speaking</span> <span class="tag">Precise Communication</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <h2 style="margin-bottom: 1.5rem;">Get In Touch</h2>
+            <div class="footer-links">
+                <a href="mailto:rishikarora2006@gmail.com">rishikarora2006@gmail.com</a>
+                <a href="https://github.com/rishikaarora22" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/rishika-arora-49b2b62b9" target="_blank">LinkedIn</a>
+                <span>+91 9764649206</span>
+            </div>
+            <p style="font-size: 0.9rem; color: var(--text-tertiary);">© 2026 Rishika Arora. Handcrafted portfolio.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
+add a yellow/ sunny/ cute theme to reflect a golden bright personality
+
+, AI generated
+
+i meant , make the website of that theme
+
+, AI generated
+
+make my personal potfolio website, change the theme to include a little yellow orange
+
+Your HTML file is ready
+HTML icon
+rishika_portfolio_sunny
+ HTML 
+Open
+
+The portfolio has been fully redesigned into a downloadable HTML file featuring a bright, sunny aesthetic. It uses a warm color palette of soft yellows, vibrant oranges, and creamy whites to reflect a golden, energetic personality while maintaining a clean and professional structure.
+
+The website includes custom hover effects, a sticky navigation bar, rounded layout cards, and a cohesive "About Me" section highlighting your academic background, community leadership, and technical projects[cite: 1]. You can open the downloaded file directly in any web browser to view the interactive layout.
+
+
+
+
+Gemini is AI and can make mistakes.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rishika Arora | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #fffaf0; /* Warm sunny off-white */
+            --surface-color: #ffffff;
+            --text-primary: #4a3b32; /* Soft brown/dark grey for readability */
+            --text-secondary: #735c4f;
+            --accent-yellow: #ffca28;
+            --accent-orange: #ff9800;
+            --accent-light: #ffecb3;
+            --border-color: #ffe0b2;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-color);
+            background-image: radial-gradient(circle at 10% 20%, #fffde7 0%, transparent 20%),
+                              radial-gradient(circle at 90% 80%, #fff8e1 0%, transparent 20%);
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 800;
+            color: var(--text-primary);
+        }
+
+        p, li {
+            color: var(--text-secondary);
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--accent-orange);
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--text-primary);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-yellow), var(--accent-orange));
+            bottom: -10px;
+            left: 25%;
+            border-radius: 2px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(255, 152, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 4.5rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--accent-orange);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            border-bottom: 2px solid transparent;
+            padding-bottom: 0.2rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-orange);
+            border-bottom: 2px solid var(--accent-yellow);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            padding-top: 5rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            margin: 0 auto;
+            max-width: 800px;
+        }
+
+        .greeting {
+            display: inline-block;
+            background-color: var(--accent-light);
+            color: var(--accent-orange);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--accent-yellow);
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-title span {
+            background: linear-gradient(45deg, var(--accent-orange), var(--accent-yellow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-desc {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            padding: 0 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, var(--accent-yellow), var(--accent-orange));
+            color: white !important;
+            box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 152, 0, 0.4);
+        }
+
+        /* Cards Layout */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--surface-color);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(255, 152, 0, 0.05);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-yellow);
+            box-shadow: 0 15px 35px rgba(255, 152, 0, 0.15);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--accent-yellow), var(--accent-orange));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: var(--accent-orange);
+        }
+
+        .card-subtitle {
+            font-size: 0.9rem;
+            color: #9c8a7e;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .card ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Tags for skills */
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        .tag {
+            background-color: var(--accent-light);
+            color: var(--accent-orange);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        /* Timeline / Experience */
+        .timeline-item {
+            background: var(--surface-color);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-left: 5px solid var(--accent-yellow);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--accent-light);
+            padding: 3rem 0;
+            text-align: center;
+            margin-top: 4rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2.5rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-container">
+            <a href="#home" class="logo">☀️ Rishika</a>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <div class="greeting">Hello! I'm Rishika Arora 🌻</div>
+            <h1 class="hero-title">I build <span>bright solutions</span> with code.</h1>
+            <p class="hero-desc">
+                A passionate B.Tech CSE student at Symbiosis Institute of Technology[cite: 1]. I thrive on combining full-stack development, machine learning, and IoT to create impactful, innovative systems[cite: 1].
+            </p>
+            <a href="#projects" class="btn btn-primary">See My Work ✨</a>
+        </div>
+    </section>
+
+    <!-- About & Education -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="timeline-item" style="border-left: 5px solid var(--accent-orange);">
+                <div class="timeline-header">
+                    <div>
+                        <h3 style="color: var(--accent-orange); font-size: 1.5rem;">Symbiosis Institute Of Technology</h3>
+                        <p style="font-weight: 600;">Bachelor of Technology in Computer Science & Engineering</p>
+                    </div>
+                    <div style="text-align: right;">
+                        <span class="tag" style="background: var(--accent-orange); color: white;">2023 - 2027</span>
+                    </div>
+                </div>
+                <p>
+                    With a stellar 9.10 GPA, I am constantly exploring the golden opportunities in tech[cite: 1]. I enjoy blending analytical problem-solving with creative implementation, whether it's building a 97% accurate cardiac arrest predictor or architecting an IoT fall detection system[cite: 1]. My sunny disposition extends to my leadership roles, where I actively foster community growth as a Club Head and Design Co-Head[cite: 1].
+                </p>
+                <div style="margin-top: 1rem;">
+                    <strong>✨ Highlights:</strong> 2nd Rank in CS Dept & Merit Scholarship Award | 2nd Runner Up at Accenture Strategy Connect | 3rd Place Alday2day Ideathon[cite: 1].
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" style="background: rgba(255, 236, 179, 0.3);">
+        <div class="container">
+            <h2 class="section-title">Experience</h2>
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <div>
+                        <h3 class="card-title">Technology Intern</h3>
+                        <p class="card-subtitle">Akshar Paaul NGO • Pune</p>
+                    </div>
+                    <span class="tag">06/2025 - 12/2025</span>
+                </div>
+                <ul>
+                    <li>Built a full-stack e-learning platform using Next.js and Firebase, featuring role-based authentication for students and admins[cite: 1].</li>
+                    <li>Developed personalized dashboards with class-filtered notes, subject-wise flashcards, and an integrated quiz module to enhance student learning[cite: 1].</li>
+                    <li>Wrote unit tests with Jest across core components and managed end-to-end project delivery, timelines, and scope using Jira[cite: 1].</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="card-grid">
+                
+                <div class="card">
+                    <h3 class="card-title">ECG Analysis for Cardiac Arrest</h3>
+                    <p class="card-subtitle">ML + Cloud Healthcare | 01/2025 - 04/2025</p>
+                    <ul>
+                        <li>Pioneered a full stack clinical ECG analyzer using ensemble models (XGBoost, Logistic Regression, Random Forest), achieving 97% AUC[cite: 1].</li>
+                        <li>Built responsive web application with Streamlit for real-time predictions and data visualization[cite: 1].</li>
+                        <li>Implemented secure data architecture with HIPAA-compliant Azure Cloud Storage[cite: 1].</li>
+                    </ul>
+                    <div class="tags-container">
+                        <span class="tag">XGBoost</span> <span class="tag">Azure</span> <span class="tag">Streamlit</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">Network Intrusion Detection System</h3>
+                    <p class="card-subtitle">Java + MySQL FullStack | 02/2025 - 03/2025</p>
+                    <ul>
+                        <li>Constructed a high-throughput network monitor capable of processing 10,000 packets/second using multithreaded Java[cite: 1].</li>
+                        <li>Structured a normalized MySQL database with 31 tables to track and analyze network events efficiently[cite: 1].</li>
+                        <li>Designed for real-time fraud detection, visualizing brute-force attacks and suspicious patterns[cite: 1].</li>
+                    </ul>
+                    <div class="tags-container">
+                        <span class="tag">Java</span> <span class="tag">MySQL</span> <span class="tag">JDBC</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">Smart Fall Detection System</h3>
+                    <p class="card-subtitle">IoT + Edge ML | 09/2024 - 10/2024</p>
+                    <ul>
+                        <li>Architected a fall detector using ESP32 and MPU6050 sensor, achieving 94.8% accuracy employing an LSTM model[cite: 1].</li>
+                        <li>Developed real-time data processing engine by deploying TensorFlow Lite[cite: 1].</li>
+                        <li>Engineered real-time emergency alerts via Blynk IoT and ThingSpeak cloud dashboards[cite: 1].</li>
+                    </ul>
+                    <div class="tags-container">
+                        <span class="tag">IoT</span> <span class="tag">TensorFlow Lite</span> <span class="tag">ESP32</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership & Skills -->
+    <section id="skills" style="background: rgba(255, 236, 179, 0.3);">
+        <div class="container">
+            <h2 class="section-title">Leadership & Skills</h2>
+            <div class="card-grid">
+                
+                <div class="card">
+                    <h3 class="card-title">Community Leadership 🌟</h3>
+                    <ul style="list-style-type: none; padding-left: 0;">
+                        <li style="margin-bottom: 1rem;"><strong>Club Head</strong> - VarSITy care (ISR Club), SIT Pune (06/2025 - Present)[cite: 1]</li>
+                        <li style="margin-bottom: 1rem;"><strong>Web Design Co-Head</strong> - SymbiTech (SIT Pune's annual techfest) (01/2025 - 02/2025)[cite: 1]</li>
+                        <li><strong>Co-Head Design</strong> - Google Developers Student Club, SIT (06/2024 - 06/2025)[cite: 1]</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">Technical toolkit 🛠️</h3>
+                    <div class="tags-container" style="margin-bottom: 1.5rem;">
+                        <span class="tag">Java</span> <span class="tag">Python</span> <span class="tag">C++</span>
+                        <span class="tag">MySQL</span> <span class="tag">Pandas</span> <span class="tag">Scikit-learn</span>
+                        <span class="tag">Azure</span> <span class="tag">Figma</span> <span class="tag">Git</span>
+                    </div>
+                    <h3 class="card-title" style="font-size: 1.2rem; color: var(--text-primary);">Soft Skills</h3>
+                    <div class="tags-container">
+                        <span class="tag" style="background: #fff; border: 1px solid var(--accent-yellow);">Accelerated Learning</span>
+                        <span class="tag" style="background: #fff; border: 1px solid var(--accent-yellow);">Team Leadership</span>
+                        <span class="tag" style="background: #fff; border: 1px solid var(--accent-yellow);">Public Speaking</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <h2 style="color: var(--accent-orange);">Let's create something bright!</h2>
+            <p>Ready to collaborate or chat about tech?</p>
+            <div class="footer-links">
+                <a href="mailto:rishikarora2006@gmail.com">rishikarora2006@gmail.com</a>
+                <a href="https://github.com/rishikaarora22" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/rishika-arora-49b2b62b9" target="_blank">LinkedIn</a>
+            </div>
+            <p style="margin-top: 2rem; font-size: 0.9rem; color: #9c8a7e;">© 2026 Rishika Arora. Handcrafted with 💛.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
