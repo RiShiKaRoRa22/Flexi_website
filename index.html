@@ -1,0 +1,337 @@
+Here is a complete, single-file solution containing the HTML, CSS, and JavaScript for your personal portfolio. The design is minimalist, highly professional, and utilizes a clean, monochrome color palette with clear section dividers.
+
+I have included an "About Me" paragraph generated from your academic background and project history.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rishika Arora | Professional Portfolio</title>
+    <style>
+        /* CSS: Clean, minimal, professional, less colorful */
+        :root {
+            --bg-body: #f4f4f5;
+            --bg-container: #ffffff;
+            --text-main: #18181b;
+            --text-muted: #52525b;
+            --border-color: #e4e4e7;
+            --accent-color: #27272a;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-body);
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--bg-container);
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+
+        /* Header Styles */
+        header {
+            text-align: center;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            font-size: 0.95rem;
+        }
+
+        .contact-links a, .contact-links span {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .contact-links a:hover {
+            color: var(--text-main);
+            text-decoration: underline;
+        }
+
+        /* Section Styles */
+        section {
+            margin-bottom: 2.5rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Item blocks (Projects, Experience) */
+        .item {
+            margin-bottom: 1.5rem;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.25rem;
+        }
+
+        .item-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .item-date {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .item-subtitle {
+            font-style: italic;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        ul {
+            padding-left: 1.25rem;
+            color: var(--text-muted);
+        }
+
+        ul li {
+            margin-bottom: 0.35rem;
+        }
+
+        /* Skills Tags */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background-color: var(--bg-body);
+            border: 1px solid var(--border-color);
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* About Paragraph */
+        .about-text {
+            font-size: 1rem;
+            color: var(--text-muted);
+            text-align: justify;
+        }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header Section -->
+        <header>
+            <h1>Rishika Arora</h1>
+            <div class="contact-links">
+                <span>+91 9764649206</span>
+                <a href="mailto:rishikarora2006@gmail.com">rishikarora2006@gmail.com</a>
+                <a href="https://github.com/rishikaarora22" target="_blank">github.com/rishikaarora22</a>
+                <a href="https://www.linkedin.com/in/rishika-arora-49b2b62b9" target="_blank">LinkedIn</a>
+            </div>
+        </header>
+
+        <!-- About Me & Education -->
+        <section id="about">
+            <h2>About & Education</h2>
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">Symbiosis Institute Of Technology</span>
+                    <span class="item-date">2023 - 2027</span>
+                </div>
+                <div class="item-subtitle">Bachelor of Technology in Computer Science and Engineering | GPA: 9.10</div>
+            </div>
+            <p class="about-text">
+                I am a dedicated Computer Science and Engineering student at Symbiosis Institute of Technology with a strong academic foundation (9.10 GPA)[cite: 1]. My technical expertise spans full-stack development, machine learning, and IoT architectures[cite: 1]. I have a proven track record of architecting robust systems, from implementing ensemble ML models for cardiac arrest prediction to building scalable e-learning platforms and hardware-integrated smart fall detection systems[cite: 1]. Beyond coding, I am committed to community leadership and technical collaboration, actively driving initiatives as a club leader and applying agile methodologies to deliver end-to-end technical solutions[cite: 1].
+            </p>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience">
+            <h2>Experience</h2>
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">Technology Intern | Akshar Paaul NGO</span>
+                    <span class="item-date">06/2025 - 12/2025</span>
+                </div>
+                <div class="item-subtitle">Pune, India</div>
+                <ul>
+                    <li>Built a full-stack e-learning platform using Next.js and Firebase, featuring role-based authentication for students and admins[cite: 1].</li>
+                    <li>Developed personalized dashboards with class-filtered notes, subject-wise flashcards, and an integrated quiz module to enhance student learning[cite: 1].</li>
+                    <li>Wrote unit tests with Jest across core components and managed end-to-end project delivery, timelines, and scope using Jira[cite: 1].</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2>Projects</h2>
+            
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">ECG Analysis for Cardiac Arrest Prediction</span>
+                    <span class="item-date">01/2025 - 04/2025</span>
+                </div>
+                <div class="item-subtitle">ML + Cloud Healthcare</div>
+                <ul>
+                    <li>Pioneered a full stack clinical ECG analyzer using ensemble models (XGBoost, Logistic Regression, Random Forest), achieving 97% AUC[cite: 1].</li>
+                    <li>Resolved class imbalance in the Georgia 12-Lead dataset by implementing SMOTE and refining features via RFE[cite: 1].</li>
+                    <li>Developed scalable data processing pipeline handling large medical datasets[cite: 1].</li>
+                    <li>Built responsive web application with Streamlit for real-time predictions and data visualization[cite: 1].</li>
+                    <li>Implemented secure data architecture with role-based access control and HIPAA-compliant Azure Cloud Storage for encrypted patient data management[cite: 1].</li>
+                </ul>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">Network Intrusion Detection System</span>
+                    <span class="item-date">02/2025 - 03/2025</span>
+                </div>
+                <div class="item-subtitle">Java + MySQL FullStack</div>
+                <ul>
+                    <li>Constructed a high-throughput network monitor capable of processing 10,000 packets/second using multithreaded Java[cite: 1].</li>
+                    <li>Structured a normalized MySQL database with 31 tables to track and analyze network events efficiently[cite: 1].</li>
+                    <li>Designed for real-time fraud detection, visualizing brute-force attacks and suspicious patterns[cite: 1].</li>
+                    <li>Implemented role-based authentication system with admin controls for dynamic threshold configuration and attack detection parameter adjustment[cite: 1].</li>
+                    <li>Integrated JDBC for seamless data access and prepared the architecture for future ML enhancements[cite: 1].</li>
+                </ul>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">Smart Fall Detection and Alert System</span>
+                    <span class="item-date">09/2024 - 10/2024</span>
+                </div>
+                <div class="item-subtitle">IoT + Edge ML</div>
+                <ul>
+                    <li>Architected a fall detector using ESP32 and MPU6050 sensor, surpassing industry benchmarks with 94.8% accuracy on the MobiFall v2.0 dataset, Employing an LSTM model on time series sensor readings[cite: 1].</li>
+                    <li>Developed real-time data processing engine by deploying TensorFlow Lite and streamlining sensor data pipelines[cite: 1].</li>
+                    <li>Engineered real-time emergency alerts via Blynk IoT and ThingSpeak cloud dashboards[cite: 1].</li>
+                    <li>Automated emergency SMS notifications with GPS-tagged location data[cite: 1].</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Club Activities & Leadership -->
+        <section id="leadership">
+            <h2>Club Activities & Leadership</h2>
+            <ul>
+                <li><strong>Club Head:</strong> VarSITy care (ISR Club), SIT Pune (06/2025 - Present)[cite: 1].</li>
+                <li><strong>Web Design Co-Head:</strong> SymbiTech (SIT Pune's annual technical fest) (01/2025 - 02/2025)[cite: 1].</li>
+                <li><strong>Co-Head Design:</strong> Google Developers Student Club, SIT (06/2024 - 06/2025)[cite: 1].</li>
+            </ul>
+        </section>
+
+        <!-- Achievements & Publications -->
+        <section id="achievements">
+            <h2>Achievements & Publications</h2>
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">Publications</span>
+                </div>
+                <ul>
+                    <li>"Cardiac Arrest Risk Prediction by ECG Analysis using Hybrid Stacked Ensemble Machine Learning and XGBoost" (2026) – R. Arora, R. Vinod, S. Shrivastava (Submitted to International Journal of Computing and Digital Systems, Under Review)[cite: 1].</li>
+                </ul>
+            </div>
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">Achievements</span>
+                </div>
+                <ul>
+                    <li>2nd Rank in Computer Science Department, Merit Scholarship Award (SIT Pune) | 02/2026[cite: 1].</li>
+                    <li>2nd Runner Up, National Finals | Accenture Strategy Connect Season 4 (Strategy consulting competition) | 08/2025[cite: 1].</li>
+                    <li>3rd Place, Alday2day Ideathon (SIT Pune) | 04/2024[cite: 1].</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <h2>Skills</h2>
+            <div class="item">
+                <div class="item-subtitle">Technical Skills</div>
+                <div class="skills-container">
+                    <span class="skill-tag">Java</span> <span class="skill-tag">Python</span>
+                    <span class="skill-tag">C</span> <span class="skill-tag">C++</span>
+                    <span class="skill-tag">MySQL</span> <span class="skill-tag">PL/SQL</span>
+                    <span class="skill-tag">JDBC</span> <span class="skill-tag">Excel</span>
+                    <span class="skill-tag">Power BI</span> <span class="skill-tag">Pandas</span>
+                    <span class="skill-tag">Numpy</span> <span class="skill-tag">Scikit-learn</span>
+                    <span class="skill-tag">Streamlit</span> <span class="skill-tag">Azure Cloud Storage</span>
+                    <span class="skill-tag">Figma</span> <span class="skill-tag">UI/UX</span>
+                    <span class="skill-tag">Linux</span> <span class="skill-tag">Shell scripting</span>
+                    <span class="skill-tag">Git</span> <span class="skill-tag">GitHub</span>
+                    <span class="skill-tag">Agile (Scrum)</span>
+                </div>
+            </div>
+            <div class="item" style="margin-top: 1rem;">
+                <div class="item-subtitle">Soft Skills</div>
+                <div class="skills-container">
+                    <span class="skill-tag">Accelerated Learning</span>
+                    <span class="skill-tag">Technical Team Leadership</span>
+                    <span class="skill-tag">Precise Communication</span>
+                    <span class="skill-tag">Cross-Functional Collaboration</span>
+                    <span class="skill-tag">Creativity</span>
+                    <span class="skill-tag">Public Speaking</span>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        // JS: Simple initialization or interactions if needed.
+        document.addEventListener('DOMContentLoaded', () => {
+            // Smoothly reveals sections as they scroll into view (optional enhancement)
+            console.log("Rishika's Portfolio loaded.");
+        });
+    </script>
+</body>
+</html>
+
+```
